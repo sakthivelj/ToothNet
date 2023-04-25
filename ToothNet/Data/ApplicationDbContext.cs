@@ -27,7 +27,7 @@ namespace ToothNet.Data
             .HasForeignKey(b => b.ApplicationUserId)
             .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<PatientResult>()
+            builder.Entity<PatientPhotos>()
             .HasOne(b => b.ApplicationUser)
             .WithMany()
             .HasForeignKey(b => b.ApplicationUserId)
@@ -37,6 +37,6 @@ namespace ToothNet.Data
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Treatment> Treatments { get; set; }
-        public DbSet<PatientResult> patientResults { get; set; }
+        public DbSet<PatientPhotos> patientPhotos { get; set; }
     }
 }
