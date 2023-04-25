@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ToothNet.Models
 {
@@ -7,10 +8,11 @@ namespace ToothNet.Models
         public int Id { get; set; }
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
+        public string ImageName { get; set; } = string.Empty;
         [NotMapped]
-        public IFormFile XRayImage { get; set; }
-        public string Description { get; set; } = string.Empty;
-        public DateTime AddedIn { get; set; }
+        [DisplayName("Upload File")]
+        public IFormFile? ImageFile { get; set; }
+        public DateTime AddedIn { get; set; } 
         public ApplicationUser? ApplicationUser { get; set; }
         public string ApplicationUserId { get; set; } = string.Empty;
     }
